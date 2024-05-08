@@ -53,9 +53,9 @@ public String deleteUser(@PathVariable Long id) {
     try {
         libroRepository.findById(id).get();
         libroRepository.deleteById(id);
-        return "libro eliminado con éxito amigaso.";
+        return "libro eliminado con éxito.";
     } catch (Exception e) {
-        return "El libro no pudo ser encontrado mi rey.";
+        return "El libro no pudo ser encontrado.";
         }
     }
 }

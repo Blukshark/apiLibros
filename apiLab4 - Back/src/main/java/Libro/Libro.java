@@ -7,7 +7,6 @@ import java.util.Date;
 @Entity
 @Table(name = "libro") // nombre de mi tabla
 public class Libro {
-
     @Id //es un id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_libro; //columna (id_libro)
@@ -100,6 +99,5 @@ public class Libro {
     public void setFechaPublicacion(Date fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
-
 
 }
