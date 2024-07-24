@@ -42,9 +42,9 @@ public Libro updateUser(@PathVariable Long id, @RequestBody Libro lib) {
     existingLibro.setId_autor(lib.getId_autor());
     existingLibro.setTitulo(lib.getTitulo());
     existingLibro.setGenero(lib.getGenero());
-    existingLibro.setNumPaginas(lib.getNumPaginas());
+    existingLibro.setNum_paginas(lib.getNum_paginas());
     existingLibro.setSinopsis(lib.getSinopsis());
-    existingLibro.setFechaPublicacion(lib.getFechaPublicacion());
+    existingLibro.setFecha_publicacion(lib.getFecha_publicacion());
     return libroRepository.save(existingLibro);
 }
 
@@ -53,9 +53,9 @@ public String deleteUser(@PathVariable Long id) {
     try {
         libroRepository.findById(id).get();
         libroRepository.deleteById(id);
-        return "libro eliminado con éxito amigaso.";
+        return "Libro eliminado con éxito.";
     } catch (Exception e) {
-        return "El libro no pudo ser encontrado mi rey.";
+        return "El libro no pudo ser encontrado.";
         }
     }
 }

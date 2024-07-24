@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idAutor;
+    private Long id_autor;
 
     @Column(name = "nombre")
     private String nombre;
@@ -18,23 +18,22 @@ public class Autor {
     //Constructor sin parametros
     public Autor()
     {
-        //this.idAutor = 0L;
         this.nombre = "";
         this.apellido = "";
     }
     //Constructor con parametros
-    public Autor(Long idAutor, String nombre, String apellido) {
-        this.idAutor = idAutor;
+    public Autor(Long id_autor, String nombre, String apellido) {
+        this.id_autor = id_autor;
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
-    public Long getIdAutor() {
-        return idAutor;
+    public Long getId_autor() {
+        return id_autor;
     }
 
-    public void setIdAutor(Long idAutor) {
-        this.idAutor = idAutor;
+    public void setId_autor(Long id_autor) {
+        this.id_autor = id_autor;
     }
 
     public String getNombre() {

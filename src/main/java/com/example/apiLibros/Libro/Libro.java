@@ -21,32 +21,33 @@ public class Libro {
     @Column(name = "genero") // columna: genero
     private String genero;
 
-    @Column(name = "numPaginas") // columna: numPaginas
-    private Integer numPaginas;
+    @Column(name = "num_paginas") // columna: numPaginas
+    private Integer num_paginas;
 
     @Column(name = "sinopsis") // sinopsis
     private String sinopsis;
 
-    @Column(name = "fechaPublicacion") // columna fechaPublicacion
-    private Date fechaPublicacion;
+    @Column(name = "fecha_publicacion") // columna fechaPublicacion
+    private Date fecha_publicacion;
 
     //constructores
-    public Libro() { //sin parametros
-        //this.id_autor = 0L;
+    //sin parametros
+    public Libro() {
+        /*this.id_autor = 0L;
         this.titulo = "";
         this.genero = "";
-        this.numPaginas = 0;
+        this.num_paginas = 0;
         this.sinopsis = "";
-        this.fechaPublicacion = null;
+        this.fecha_publicacion = new Date();*/
     }
     //con parametros
-    public Libro(Long id_autor, String titulo, String genero, Integer numPaginas, String sinopsis, Date fechaPublicacion) {
+    public Libro(Long id_autor, String titulo, String genero, Integer num_paginas, String sinopsis, Date fecha_publicacion) {
         this.id_autor = id_autor;
         this.titulo = titulo;
         this.genero = genero;
-        this.numPaginas = numPaginas;
+        this.num_paginas = num_paginas;
         this.sinopsis = sinopsis;
-        this.fechaPublicacion = fechaPublicacion;
+        this.fecha_publicacion = fecha_publicacion;
     }
 
     public Long getId_libro() {
@@ -77,12 +78,12 @@ public class Libro {
         this.genero = genero;
     }
 
-    public Integer getNumPaginas() {
-        return numPaginas;
+    public Integer getNum_paginas() {
+        return num_paginas;
     }
 
-    public void setNumPaginas(Integer numPaginas) {
-        this.numPaginas = numPaginas;
+    public void setNum_paginas(Integer num_paginas) {
+        this.num_paginas = num_paginas;
     }
 
     public String getSinopsis() {
@@ -93,12 +94,12 @@ public class Libro {
         this.sinopsis = sinopsis;
     }
 
-    public Date getFechaPublicacion() {
-        return fechaPublicacion;
+    public Date getFecha_publicacion() {
+        return fecha_publicacion;
     }
 
-    public void setFechaPublicacion(Date fechaPublicacion) {
-        this.fechaPublicacion = fechaPublicacion;
+    public void setFecha_publicacion(Date fecha_publicacion) {
+        this.fecha_publicacion = fecha_publicacion;
     }
 
 }
