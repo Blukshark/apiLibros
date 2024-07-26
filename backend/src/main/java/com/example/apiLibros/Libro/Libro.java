@@ -2,7 +2,7 @@ package com.example.apiLibros.Libro;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "libro") // nombre de mi tabla
@@ -28,26 +28,23 @@ public class Libro {
     private String sinopsis;
 
     @Column(name = "fecha_publicacion") // columna fechaPublicacion
-    private Date fecha_publicacion;
+    private LocalDate fecha_publicacion;
+
+    @Column(name = "stock")
+    private Integer stock;
 
     //constructores
     //sin parametros
-    public Libro() {
-        /*this.id_autor = 0L;
-        this.titulo = "";
-        this.genero = "";
-        this.num_paginas = 0;
-        this.sinopsis = "";
-        this.fecha_publicacion = new Date();*/
-    }
+    public Libro() { }
     //con parametros
-    public Libro(Long id_autor, String titulo, String genero, Integer num_paginas, String sinopsis, Date fecha_publicacion) {
+    public Libro(Long id_autor, String titulo, String genero, Integer num_paginas, String sinopsis, LocalDate fecha_publicacion, Integer stock) {
         this.id_autor = id_autor;
         this.titulo = titulo;
         this.genero = genero;
         this.num_paginas = num_paginas;
         this.sinopsis = sinopsis;
         this.fecha_publicacion = fecha_publicacion;
+        this.setStock(stock);
     }
 
     public Long getId_libro() {
@@ -94,12 +91,19 @@ public class Libro {
         this.sinopsis = sinopsis;
     }
 
-    public Date getFecha_publicacion() {
+    public LocalDate getFecha_publicacion() {
         return fecha_publicacion;
     }
 
-    public void setFecha_publicacion(Date fecha_publicacion) {
+    public void setFecha_publicacion(LocalDate fecha_publicacion) {
         this.fecha_publicacion = fecha_publicacion;
     }
 
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
 }

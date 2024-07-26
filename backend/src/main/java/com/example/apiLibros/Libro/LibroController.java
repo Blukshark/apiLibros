@@ -36,7 +36,7 @@ public Libro createLibro(@RequestBody Libro lib) {
 }
 
 @PutMapping("/{id}")
-public Libro updateUser(@PathVariable Long id, @RequestBody Libro lib) {
+public Libro updateLibro(@PathVariable Long id, @RequestBody Libro lib) {
     Libro existingLibro = libroRepository.findById(id).get();
     //existingLibro.setId_libro(lib.getId_libro());
     existingLibro.setId_autor(lib.getId_autor());
@@ -45,11 +45,12 @@ public Libro updateUser(@PathVariable Long id, @RequestBody Libro lib) {
     existingLibro.setNum_paginas(lib.getNum_paginas());
     existingLibro.setSinopsis(lib.getSinopsis());
     existingLibro.setFecha_publicacion(lib.getFecha_publicacion());
+    existingLibro.setStock(lib.getStock());
     return libroRepository.save(existingLibro);
 }
 
 @DeleteMapping("/{id}")
-public String deleteUser(@PathVariable Long id) {
+public String deleteLibro(@PathVariable Long id) {
     try {
         libroRepository.findById(id).get();
         libroRepository.deleteById(id);
