@@ -51,12 +51,14 @@ public Libro updateLibro(@PathVariable Long id, @RequestBody Libro lib) {
 
 @DeleteMapping("/{id}")
 public String deleteLibro(@PathVariable Long id) {
-    try {
-        libroRepository.findById(id).get();
+    if (libroRepository.existsById(id) )
+    {
         libroRepository.deleteById(id);
         return "Libro eliminado con éxito.";
-    } catch (Exception e) {
-        return "El libro no pudo ser encontrado.";
+    }
+        else
+        {
+            return "El libro no existe.";
         }
     }
 }

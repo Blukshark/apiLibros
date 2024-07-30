@@ -4,7 +4,6 @@ import com.example.apiLibros.Cliente.Cliente;
 import com.example.apiLibros.Libro.Libro;
 import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "prestamo")
@@ -22,9 +21,10 @@ public class Prestamo {
     @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente cliente;
 
-    @Column(name = "fecha_inicio")
+    @Column(name = "fecha_inicio", nullable = false)
     private LocalDate fecha_inicio;
 
+    //Esta si puede ser una fecha nula, para que se agregue a posterior de la definicion del prestamo
     @Column(name = "fecha_fin")
     private LocalDate fecha_fin;
 

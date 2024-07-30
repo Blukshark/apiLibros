@@ -38,11 +38,11 @@ public class AutorController {
     }
     @DeleteMapping("/{id}")
     public String deleteAutor(@PathVariable Long id) {
-        try {
-            AutorRepository.deleteById(id);
+        if (AutorRepository.existsById(id) ) { //valido que exista
+            AutorRepository.deleteById(id); //si existe lo elimino y retorno mensaje
             return "Autor eliminado con éxito.";
-        } catch (Exception e) {
-            return "El autor no pudo ser encontrado.";
+        } else { //si no existe no hago nada y muestro mensaje
+            return "El autor no existe.";
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.example.apiLibros.Cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,16 +33,18 @@ public class ClienteController {
 
     // Actualizar un cliente existente
     @PutMapping("/{id}")
-    public Cliente updateCliente(@PathVariable Long id, @RequestBody Cliente cli) {
+    public ResponseEntity<String> updateCliente(@PathVariable Long id, @RequestBody Cliente cli) {
         Cliente existingCliente = clienteRepository.findById(id).orElse(null);
         if (existingCliente != null) {
             existingCliente.setNombre(cli.getNombre());
             existingCliente.setApellido(cli.getApellido());
-            existingCliente.setUser(cli.getUser());
-            existingCliente.setPass(cli.getPass());
-            return clienteRepository.save(existingCliente);
+            existingCliente.setUsername(cli.getUsername());
+            existingCliente.setPassword(cli.getPassword());
+            clienteRepository.save(existingCliente);
+            return ResponseEntity.ok("Cliente actualizado con éxito.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente no encontrado.");
         }
-        return null;
     }
 
     // Eliminar un cliente

@@ -15,20 +15,20 @@ public class Cliente {
     @Column(name = "apellido")
     private String apellido;
 
-    @Column(name = "user")
-    private String user;
+    @Column(name = "username")
+    private String username;
 
-    @Column(name = "pass")
-    private String pass;
+    @Column(name = "password")
+    private String password;
 
     // Constructor sin parametros
     public Cliente() {}
     // Constructor con parametros
-    public Cliente(String nombre, String apellido, String user, String pass) {
+    public Cliente(String nombre, String apellido, String username, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.user = user;
-        this.pass = pass;
+        this.username = username;
+        this.password = password;
     }
 
     // Getters y Setters
@@ -56,20 +56,19 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
-
 }
