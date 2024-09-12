@@ -4,6 +4,9 @@
 ```
 npm install
 ```
+npm install vue@latest
+npm install vuetify@latest
+npm install @mdi/font
 
 ### Compiles and hot-reloads for development
 ```
@@ -22,3 +25,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
