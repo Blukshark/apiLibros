@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import AuthForm from '../components/AuthForm.vue';
 import DashBoard from '../components/DashBoard.vue';
-import GestionLibros from '../components/Libros.vue';
-import GestionAutores from '../components/Autores.vue';
-import GestionPrestamos from '../components/Prestamos.vue';
+import GestionLibros from '../components/GestionLibros.vue';
+import GestionAutores from '../components/GestionAutores.vue';
+import GestionPrestamos from '../components/GestionPrestamos.vue';
 
 // Importa todas las funciones de autenticación
 import auth from '../utils/auth';

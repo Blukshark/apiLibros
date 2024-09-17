@@ -76,7 +76,7 @@ export default {
 <style scoped>
 .v-container {
   background-color: #f5f5f5;
-  min-height: 90vh; /* Asegura que el contenedor tenga al menos el alto de la vista */
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,11 +90,15 @@ export default {
 
 .v-text-field,
 .v-btn {
-  margin-bottom: 16px; /* Espacio entre los campos y el botón */
-  margin-top: 16px; /* Espacio adicional para el botón */
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .v-alert {
   margin-top: 16px;
+}
+
+.v-card-title {
+  align-self: center;
 }
 </style>
