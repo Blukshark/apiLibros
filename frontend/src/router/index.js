@@ -4,6 +4,7 @@ import DashBoard from '../components/DashBoard.vue';
 import GestionLibros from '../components/GestionLibros.vue';
 import GestionAutores from '../components/GestionAutores.vue';
 import GestionPrestamos from '../components/GestionPrestamos.vue';
+import GestionPerfil from '../components/GestionPerfil';
 
 // Importa todas las funciones de autenticación
 import auth from '../utils/auth';
@@ -15,6 +16,7 @@ const routes = [
   { path: '/libros', component: GestionLibros, meta: { requiresAuth: true }, },
   { path: '/autores', component: GestionAutores, meta: { requiresAuth: true }, },
   { path: '/prestamos', component: GestionPrestamos, meta: { requiresAuth: true }, },
+  { path: '/perfil', component: GestionPerfil, meta: { requiresAuth: true }, },
 ];
 
 const router = createRouter({

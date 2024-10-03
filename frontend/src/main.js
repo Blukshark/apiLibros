@@ -1,4 +1,4 @@
-import { createApp } from 'vue'; // Importa Vue version 3
+import { createApp } from 'vue'; // Importa Vue v3
 import App from './App.vue';
 
 //Importar fuentes de material design
@@ -6,6 +6,7 @@ import '@mdi/font/css/materialdesignicons.css';
 
 //import Vue router
 import router from './router';
+
 //imports de Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'

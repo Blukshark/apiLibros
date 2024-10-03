@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <NavBar/>
-    <v-main>
+    <v-main class="custom-bg">
       <v-container>
         <h1>Bienvenido al Dashboard</h1>
       </v-container>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style scoped>
-.v-app {
-  background-color: #a7cfdb;
+.custom-bg {
+  background-color: #a5aac9;
 }
 </style>
