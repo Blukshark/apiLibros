@@ -3,7 +3,7 @@
     <NavBar/>
     <v-main class="custom-bg">
       <v-container>
-        <h1>Bienvenido al Dashboard</h1>
+        <v-toolbar-title>Bienvenido a la pagina principal de la biblioteca, {{ username }} </v-toolbar-title>
       </v-container>
     </v-main>
   </v-app>
@@ -11,12 +11,18 @@
 
 <script>
 import NavBar from './NavBar.vue';
-
+import auth from '../utils/auth';
 export default {
   components: {
     NavBar
   },
+  data(){
+    return{
+      username: auth.getAuthenticatedUser(),
+    }
+  }
 };
+
 </script>
 
 <style scoped>

@@ -21,6 +21,17 @@ public class Cliente {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "rol", nullable = false)
+    private String rol;
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
     // Constructor sin parametros
     public Cliente() {}
     // Constructor con parametros

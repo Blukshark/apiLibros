@@ -11,23 +11,12 @@
             <!-- .prevent evita el comportamiento por defecto del form, evitando recargar la página -->
             <v-form @submit.prevent="submitForm">
               <!-- input nombre de usuario -->
-              <v-text-field
-                v-model="username"
-                label="Nombre de usuario"
-                prepend-icon="mdi-account"
-                outlined
-                required
-              ></v-text-field>
+              <v-text-field v-model="username" label="Nombre de usuario" prepend-icon="mdi-account" outlined
+                required></v-text-field>
 
               <!-- input contraseña -->
-              <v-text-field
-                v-model="password"
-                label="Contraseña"
-                prepend-icon="mdi-lock"
-                type="password"
-                outlined
-                required
-              ></v-text-field>
+              <v-text-field v-model="password" label="Contraseña" prepend-icon="mdi-lock" type="password" outlined
+                required></v-text-field>
 
               <!-- Botón para enviar el formulario -->
               <v-btn type="submit" color="primary" block>
@@ -65,30 +54,44 @@ export default {
     // Método asíncrono para manejar el envío del formulario de inicio de sesión
     async submitForm() {
       try {
-        // mando una solicitud POST al back para autenticar al usuario con las credenciales del form
+        // Realizas la petición al backend para autenticar al usuario
         const response = await axios.post('/auth/login', {
           username: this.username,
           password: this.password,
         });
 
-        // Si la solicitud es exitosa (código de estado 200), iniciar sesion
         if (response.status === 200) {
-          auth.login(); // se marca al usuario como autenticado en localStorage
-          this.$router.push('/dashboard'); // redirige al dashboard
+          const response2 = await axios.get(`/clientes/nombre/${this.username}`);
+
+          const user = response2.data; // recibo el usuario
+          console.log(user);
+          // Guardar username en localStorage
+          auth.setUsername(user.username);
+
+          // Guardar la ID del cliente en localStorage
+          auth.setClientId(user.id_cliente); // Guardar el ID del cliente que recibes
+
+          // Marcar como autenticado
+          auth.login();
+
+          // Redirigir al dashboard
+          this.$router.push('/dashboard');
         }
       } catch (error) {
-        // Si ocurre un error, mostramos un mensaje de error en la interfaz
+        // Mostrar el mensaje de error
         this.error = 'Error en la solicitud: ' + (error.response ? error.response.data : error.message);
       }
-    },
+    }
+    ,
   },
 };
 </script>
 
 <style scoped>
-.custom-bg{
+.custom-bg {
   background-color: #a5aac9;
 }
+
 .v-container {
   min-height: 90vh;
   display: flex;
