@@ -102,9 +102,6 @@ public class PrestamoController {
         }
     }
 
-
-
-
     // Eliminar préstamo por ID
     @DeleteMapping("/{id}")
     public String deletePrestamo(@PathVariable Long id) {

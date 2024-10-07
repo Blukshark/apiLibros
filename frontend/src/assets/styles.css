@@ -1,0 +1,25 @@
+.simple-table {
+    width: 90%;
+    margin: 0 auto; /* para centrar la tabla en la pantalla */
+    border-collapse: collapse;
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+.simple-table th {
+background-color: #3c2eda; /* Color de fondo del encabezado */
+color: white; /* Color del texto en el encabezado */
+border: 1px solid #939cdb;
+padding: 15px;
+text-align: center;
+}
+
+.simple-table td {
+background-color: #5774a0; /* Color de fondo de las celdas */
+padding: 15px;
+border: 1px solid #939cdb;
+text-align: center;
+}
+
+

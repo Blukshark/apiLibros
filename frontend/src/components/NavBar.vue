@@ -1,4 +1,5 @@
 <template>
+<v-container>
   <v-app-bar app color="primary" dark>
     <v-btn text to="/DashBoard">Inicio</v-btn>
     <v-btn text to="/libros">Libros</v-btn>
@@ -16,6 +17,7 @@
     </v-btn>
 
   </v-app-bar>
+</v-container>
 </template>
 
 <script>
