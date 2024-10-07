@@ -28,22 +28,17 @@
     <!-- Formulario para crear un nuevo préstamo -->
     <v-form v-if="showCrearPrestamo">
       <v-container>
-        <v-select
-          v-model="nuevoPrestamo.id_cliente"
-          :items="clientes"
-          item-title="nombre"
-          item-value="id_cliente"
-          label="Selecciona un cliente"
-        />
-        <v-select
-          v-model="nuevoPrestamo.id_libro"
-          :items="libros"
-          item-title="titulo"
-          item-value="id_libro"
-          label="Selecciona un libro"
-        />
+        <v-combobox v-model="nuevoPrestamo.id_cliente" :items="clientes" item-title="username" item-value="id_cliente"
+          label="Selecciona un cliente">
+        </v-combobox>
+
+        <v-combobox v-model="nuevoPrestamo.id_libro" :items="libros" item-title="titulo" item-value="id_libro"
+          label="Selecciona un libro">
+        </v-combobox>
+
         <v-text-field v-model="nuevoPrestamo.fecha_inicio" label="Fecha de Inicio" type="date"></v-text-field>
         <v-text-field v-model="nuevoPrestamo.fecha_fin" label="Fecha de Fin" type="date"></v-text-field>
+
         <v-btn @click="createPrestamo" color="primary">Crear Préstamo</v-btn>
       </v-container>
     </v-form>
@@ -53,8 +48,8 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>ID Cliente</th>
-          <th>ID Libro</th>
+          <th>Cliente</th>
+          <th>Libro</th>
           <th>Fecha de Inicio</th>
           <th>Fecha de Fin</th>
           <th>Acciones</th>
@@ -63,8 +58,8 @@
       <tbody>
         <tr v-for="prestamo in prestamos" :key="prestamo.id_prestamo">
           <td>{{ prestamo.id_prestamo }}</td>
-          <td>{{ prestamo.id_cliente }}</td>
-          <td>{{ prestamo.id_libro }}</td>
+          <td>{{ prestamo.cliente.username }}</td>
+          <td>{{ prestamo.libro.titulo }}</td>
           <td>{{ prestamo.fecha_inicio }}</td>
           <td>{{ prestamo.fecha_fin || 'Pendiente' }}</td>
           <td>
@@ -91,20 +86,10 @@
 
     <!-- Formulario de modificación -->
     <v-form v-if="showModificarPrestamo">
-      <v-select
-        v-model="selectedPrestamo.id_cliente"
-        :items="clientes"
-        item-title="nombre"
-        item-value="id_cliente"
-        label="Selecciona un cliente"
-      />
-      <v-select
-        v-model="selectedPrestamo.id_libro"
-        :items="libros"
-        item-title="titulo"
-        item-value="id_libro"
-        label="Selecciona un libro"
-      />
+      <v-combobox v-model="selectedPrestamo.cliente.id_cliente" :items="clientes" item-title="username"
+        item-value="id_cliente" label="Selecciona un cliente"></v-combobox>
+      <v-combobox v-model="selectedPrestamo.libro.id_libro" :items="libros" item-title="titulo" item-value="id_libro"
+        label="Selecciona un libro"></v-combobox>
       <v-text-field v-model="selectedPrestamo.fecha_inicio" label="Fecha de Inicio" type="date"></v-text-field>
       <v-text-field v-model="selectedPrestamo.fecha_fin" label="Fecha de Fin" type="date"></v-text-field>
       <v-btn @click="updatePrestamo" color="primary">Guardar cambios</v-btn>
@@ -131,7 +116,12 @@ export default {
       prestamos: [],
       clientes: [],
       libros: [],
-      selectedPrestamo: null,
+      selectedPrestamo: {
+        id_cliente: '',
+        id_libro: '',
+        fecha_inicio: '',
+        fecha_fin: '',
+      },
       searchId: '',
       nuevoPrestamo: {
         id_cliente: '',
@@ -169,6 +159,7 @@ export default {
       try {
         const response = await axios.get('/prestamos');
         this.prestamos = response.data;
+        //console.log("Prestamos: " + JSON.stringify(this.prestamos));
       } catch (error) {
         console.error('Error buscando préstamos:', error);
         alert('No se encontraron préstamos.');
@@ -220,11 +211,22 @@ export default {
     },
     async createPrestamo() {
       try {
-        const response = await axios.post('/prestamos', this.nuevoPrestamo);
-        this.prestamos.push(response.data);
+        const prestamoAEnviar = {
+          cliente: { id_cliente: this.nuevoPrestamo.id_cliente.id_cliente },
+          libro: { id_libro: this.nuevoPrestamo.id_libro.id_libro },
+          fecha_inicio: this.nuevoPrestamo.fecha_inicio,
+          fecha_fin: this.nuevoPrestamo.fecha_fin
+        };
+
+        await axios.post('/prestamos', prestamoAEnviar);
+        //console.log("response: "+response);
+        //console.log("Nuevo prestamo: " + JSON.stringify(this.nuevoPrestamo));
+        //this.prestamos.push(response.data);
         this.nuevoPrestamo = { id_cliente: '', id_libro: '', fecha_inicio: '', fecha_fin: '' };
+
         this.showCrearPrestamo = false;
       } catch (error) {
+        console.log("(error) Nuevo prestamo: " + JSON.stringify(this.nuevoPrestamo));
         console.error('Error creando préstamo:', error);
         alert('No se pudo crear el préstamo.');
       }

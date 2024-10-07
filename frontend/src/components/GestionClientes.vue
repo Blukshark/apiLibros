@@ -264,16 +264,6 @@ export default {
       this.verFormMod = true;
       console.log("Usuario seleccionado:", this.selectedUser);
     },
-    /*deleteUser(idCliente) {
-      axios.delete(`/clientes/${idCliente}`)
-        .then(() => {
-          alert('Usuario eliminado con éxito.');
-          this.fetchClientes();
-        })
-        .catch(error => {
-          console.error('Error al eliminar el usuario:', error.response ? error.response.data : error.message);
-        });
-    },*/
     deleteUser(idCliente) {
       axios.delete(`/clientes/${idCliente}`)
         .then(() => {
