@@ -36,10 +36,9 @@
         <v-text-field v-model="nuevoLibro.stock" label="Stock" type="number"></v-text-field>
 
         <!--v-select para elegir un autor-->
-        <v-select v-model="nuevoLibro.id_autor" :items="autores" item-title="nombre" item-value="id_autor"
+        <v-combobox v-model="nuevoLibro.id_autor" :items="autores" item-title="nombre" item-value="id_autor"
           label="Selecciona un autor">
-        </v-select>
-
+        </v-combobox>
         <v-btn @click="createLibro" color="primary">Crear Libro</v-btn>
 
       </v-container>

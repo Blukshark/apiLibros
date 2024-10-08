@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14.13
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: lauta
+      POSTGRES_PASSWORD: messi
+      POSTGRES_DB: bibliotecabd
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5433:5432"
+    networks:
+      - backend
+
+  backend:
+    build: ./backend
+    container_name: backend-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
