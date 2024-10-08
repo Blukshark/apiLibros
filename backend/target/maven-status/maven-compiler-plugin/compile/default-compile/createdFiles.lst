@@ -1,0 +1,15 @@
+com/example/apiLibros/Prestamo/PrestamoRepository.class
+com/example/apiLibros/Cliente/ClienteRepository.class
+com/example/apiLibros/Prestamo/PrestamoController.class
+com/example/apiLibros/Autor/Autor.class
+com/example/apiLibros/Cliente/ClienteController.class
+com/example/apiLibros/ApiLibrosApplication.class
+com/example/apiLibros/Libro/LibroController.class
+com/example/apiLibros/Auth/AuthController.class
+com/example/apiLibros/Libro/Libro.class
+com/example/apiLibros/Libro/LibroRepository.class
+com/example/apiLibros/Autor/AutorController.class
+com/example/apiLibros/Prestamo/Prestamo.class
+com/example/apiLibros/Autor/AutorRepository.class
+com/example/apiLibros/CorsConfig.class
+com/example/apiLibros/Cliente/Cliente.class

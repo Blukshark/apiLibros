@@ -1,9 +1,9 @@
-CREATE TABLE autor (
+CREATE TABLE IF NOT EXISTS autor (
     "id_autor" SERIAL PRIMARY KEY,
     "nombre" VARCHAR(100) NOT NULL,
     "apellido" VARCHAR(100) NOT NULL
 );
-CREATE TABLE cliente (
+CREATE TABLE IF NOT EXISTS cliente (
     "id_cliente" SERIAL PRIMARY KEY,
     "nombre" VARCHAR(100) NOT NULL,
     "apellido" VARCHAR(100) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE cliente (
     "rol" VARCHAR(50) NOT NULL DEFAULT 'usuario'
 );
 
-CREATE TABLE "libro"(
+CREATE TABLE IF NOT EXISTS "libro"(
     "id_libro" SERIAL PRIMARY KEY,
     "id_autor" SMALLINT NOT NULL,
     "titulo" VARCHAR(255) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE "libro"(
     FOREIGN KEY (id_autor) REFERENCES autor(id_autor)
 );
 
-CREATE TABLE "prestamo"(
+CREATE TABLE IF NOT EXISTS "prestamo"(
     "id_prestamo" SERIAL PRIMARY KEY,
     "id_libro" SMALLINT NOT NULL,
     "id_cliente" SMALLINT NOT NULL,

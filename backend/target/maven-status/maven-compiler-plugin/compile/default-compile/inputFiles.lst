@@ -1,0 +1,15 @@
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/ApiLibrosApplication.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Auth/AuthController.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Autor/Autor.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Autor/AutorController.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Autor/AutorRepository.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Cliente/Cliente.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Cliente/ClienteController.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Cliente/ClienteRepository.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/CorsConfig.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Libro/Libro.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Libro/LibroController.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Libro/LibroRepository.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Prestamo/Prestamo.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Prestamo/PrestamoController.java
+/home/lauta/Proyectos/apiLibros-front/backend/src/main/java/com/example/apiLibros/Prestamo/PrestamoRepository.java
